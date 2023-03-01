@@ -2,12 +2,19 @@
 const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+var cors = require("cors");
 const db = require("./db");
 const routes = require("./routes");
 
 const server = express();
 const port = 3001;
+const corsOptions = {
+  credentials: true,
+  origin: "http://localhost:3000",
+  ///..other options
+};
 
+server.use(cors(corsOptions));
 server.use(morgan("tiny"));
 server.use(express.json());
 server.use(cookieParser());

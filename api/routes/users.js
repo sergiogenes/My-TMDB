@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 
 //Ruta para crear un usuario
 
-router.post("/", (req, res) => {
+router.post("/register", (req, res) => {
   console.log("req.body dentro de post users ==>>", req.body);
   const { firstName, lastName, email, userName, birthday, password } = req.body;
   Users.create({ firstName, lastName, email, userName, birthday, password })
@@ -36,12 +36,16 @@ router.post("/login", (req, res) => {
 
         const token = generateToken({ id, firstName, lastName, email });
         res.cookie("token", token);
-        res.send(user);
+        res.status(200).send(user);
       });
     })
     .catch((error) => res.status(404).send(error));
 });
-
+// ruta para desloguear un usuario
+router.post("/logout", validateUser, (req, res) => {
+  res.clearCookie("token");
+  res.status(200).send({});
+});
 // Ruta con un usuario logeado
 
 router.get("/myUser", validateUser, (req, res) => {
