@@ -4,8 +4,15 @@ const { Users, Favorites } = require("../models");
 const { generateToken } = require("../utils/token");
 const { validateUser } = require("../middleware/validateUser");
 
+//Ruta para devolver todos los usuarios
 router.get("/", (req, res) => {
   Users.findAll().then((users) => res.status(200).send(users));
+});
+
+//Ruta para devolver un usuario particular
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  Users.findByPk(id).then((user) => res.status(200).send(user));
 });
 
 //Ruta para crear un usuario

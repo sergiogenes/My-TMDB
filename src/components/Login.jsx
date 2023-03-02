@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useInput from "../hooks/useInput";
 
 const Login = ({ setUser }) => {
@@ -36,6 +36,10 @@ const Login = ({ setUser }) => {
         <input type="password" {...password} />
         <button type="submit">Login</button>
       </form>
+      <h3>Si no tienes una cuenta podes crearla aquí</h3>
+      <Link to="/register">
+        <h4>Register</h4>
+      </Link>
     </>
   );
 };

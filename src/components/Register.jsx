@@ -1,6 +1,7 @@
 import React from "react";
 import useInput from "../hooks/useInput";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = ({ setUser }) => {
   const firstName = useInput("");
@@ -9,6 +10,7 @@ const Register = ({ setUser }) => {
   const userName = useInput("");
   const birthday = useInput("");
   const password = useInput("");
+  const navigate = useNavigate();
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -22,8 +24,9 @@ const Register = ({ setUser }) => {
         password: password.value,
       })
       .then((response) => response.data)
-      .then((user) => setUser(user))
+      .then((user) => console.log(user))
       .catch((error) => console.error(error));
+    navigate("/login");
   };
   return (
     <form onSubmit={handlerSubmit} style={style}>

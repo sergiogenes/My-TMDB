@@ -7,7 +7,9 @@ const Navbar = ({ user, setUser }) => {
     <>
       <nav className="navbar">
         <div>
-          <img />
+          <Link to="/">
+            <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" />
+          </Link>
           <h1>
             {user.id
               ? `Wellcome ${user.firstName} !!`
@@ -23,11 +25,14 @@ const Navbar = ({ user, setUser }) => {
             <Link to="tv">
               <p>Tv Series</p>
             </Link>
-            <Link to="person">
-              <p>Persons</p>
+            <Link to="user/favorites/movie">
+              <p>Favorites Movies</p>
             </Link>
-            <Link to="favorites">
-              <p>Favorites</p>
+            <Link to="user/favorites/tv">
+              <p>Favorites Tv Series</p>
+            </Link>
+            <Link to="user">
+              <p>List Users</p>
             </Link>
             <Logout setUser={setUser} />
           </>
