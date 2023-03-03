@@ -23,7 +23,7 @@ const Content = ({ config, contents, setContents }) => {
     }
   }, [category]);
 
-  return (
+  return Object.keys(config).length !== 0 ? (
     <div className="divContent">
       {contents.map((content) => (
         <Card
@@ -35,6 +35,8 @@ const Content = ({ config, contents, setContents }) => {
         />
       ))}
     </div>
+  ) : (
+    <div>Loading ....</div>
   );
 };
 
