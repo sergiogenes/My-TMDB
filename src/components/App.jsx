@@ -25,10 +25,16 @@ const App = () => {
       .then((config) => setConfig(config));
   }, []);
 
+  const cookieToken = document.cookie.replace(
+    /(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/,
+    "$1"
+  );
+  console.log("cookies.token ==>>", cookieToken);
+
   useEffect(() => {
     const newUser = JSON.parse(localStorage.getItem("user")) || {};
 
-    if (newUser.id) {
+    if (newUser.id && cookieToken) {
       setUser(newUser);
     }
   }, []);

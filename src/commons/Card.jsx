@@ -5,10 +5,10 @@ import { useParams, Link } from "react-router-dom";
 import { api_key } from "../utils/apiConfig.json";
 
 //console.log("movie", movie);
-const Card = ({ content, config, type, change, setChange }) => {
+const Card = ({ content, config, type, change, setChange, category }) => {
   //console.log("config", config);
   const params = useParams();
-  const category = params.category;
+  const categoryCard = category ? category : params.category;
   console.log("contentId dentro de card", category);
   const { base_url } = config.images;
   const size = config.images.poster_sizes;
@@ -16,7 +16,7 @@ const Card = ({ content, config, type, change, setChange }) => {
   const addToFavorites = (e) => {
     axios
       .post(
-        `http://localhost:3001/api/favorites/${category}s/`,
+        `http://localhost:3001/api/favorites/${categoryCard}s/`,
         {
           id: content.id,
         },
@@ -29,7 +29,7 @@ const Card = ({ content, config, type, change, setChange }) => {
   const removeFromFavorites = (e) => {
     axios
       .delete(
-        `http://localhost:3001/api/favorites/${category}s/${content.id}`,
+        `http://localhost:3001/api/favorites/${categoryCard}s/${content.id}`,
         { withCredentials: true }
       )
       .then((result) => result.data)
@@ -46,7 +46,7 @@ const Card = ({ content, config, type, change, setChange }) => {
     <p> Loading ... </p>
   ) : (
     <div className="card-container">
-      <Link to={`/${category}/${content.id}`}>
+      <Link to={`/${categoryCard}/${content.id}`}>
         <img
           src={`${base_url}/${size[1]}/${content.poster_path}?${api_key}`}
           alt="imagen de la card"

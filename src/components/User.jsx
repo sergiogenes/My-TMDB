@@ -43,7 +43,7 @@ const User = ({ config }) => {
         <ViewContents
           config={config}
           contents={favoriteTvs}
-          category="movie"
+          category="tv"
           type="add"
         />
       ) : (
