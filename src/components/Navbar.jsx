@@ -12,7 +12,7 @@ const Navbar = ({ user, setUser }) => {
           </Link>
           <h1>
             {user.id
-              ? `Wellcome ${user.firstName} !!`
+              ? `Wellcome ${user.firstName}!!`
               : "Wellcome to my TMDB !!"}
           </h1>
         </div>

@@ -45,13 +45,3 @@ const Login = ({ setUser }) => {
 };
 
 export default Login;
-
-/* const style = {
-  display: "flex",
-  width: "50%",
-  flexDirection: "column",
-  justifyContent: "center",
-  alingsItems: "center",
-  gap: "10px",
-  fontSize: "16px",
-}; */

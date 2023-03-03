@@ -1,12 +1,10 @@
 import axios from "axios";
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-//import movie from "../utils/fakemovie";
+
 import { api_key } from "../utils/apiConfig.json";
 
-//console.log("movie", movie);
 const Card = ({ content, config, type, change, setChange, category }) => {
-  //console.log("config", config);
   const params = useParams();
   const categoryCard = category ? category : params.category;
   console.log("contentId dentro de card", category);
@@ -64,8 +62,3 @@ const Card = ({ content, config, type, change, setChange, category }) => {
 };
 
 export default Card;
-
-/* https://www.themoviedb.org/t/p/w220_and_h330_face/6jE6HqtBqRUKuy98NMoWyZOHguR.jpg */
-
-/* 
-`https://www.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}?api_key=e08ad6a823e033e2be1a81ac21eae76d` */
