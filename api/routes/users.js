@@ -20,8 +20,14 @@ router.get("/:id", (req, res) => {
 router.post("/register", (req, res) => {
   console.log("req.body dentro de post users ==>>", req.body);
   const { firstName, lastName, email, userName, birthday, password } = req.body;
-  Users.create({ firstName, lastName, email, userName, birthday, password })
-    .then((user) => res.status(201).send(user))
+  Users.findOrCreate({
+    where: { email },
+    defaults: { firstName, lastName, userName, birthday, password },
+  })
+    .then(([user, created]) => {
+      if (created) return res.status(201).send(user);
+      res.status(200).send("El correo electrónico ya existe!");
+    })
     .catch((error) => res.status(500).send(error));
 });
 

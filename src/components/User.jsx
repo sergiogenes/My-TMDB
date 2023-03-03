@@ -22,12 +22,13 @@ const User = ({ config }) => {
 
   return (
     <>
+      <h2>Datos del Usuario :</h2>
       <p>{`First Name:  ${user.firstName}`}</p>
       <p>{`Last Name:   ${user.lastName}`}</p>
       <p>{`User Name:   ${user.userName}`}</p>
       <p>{`E-mail:      ${user.email}`}</p>
-      <p>Favoritos</p>
-      <p>Movies</p>
+      <h2>Favoritos</h2>
+      <h3>Movies</h3>
       {favoritesMovies.length !== 0 ? (
         <ViewContents
           config={config}
@@ -38,7 +39,7 @@ const User = ({ config }) => {
       ) : (
         <p>Loding...</p>
       )}
-      <p>Tv Series</p>
+      <h3>Tv Series</h3>
       {favoriteTvs.length !== 0 ? (
         <ViewContents
           config={config}

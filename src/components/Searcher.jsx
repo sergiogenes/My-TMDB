@@ -26,7 +26,7 @@ const Searcher = ({ config, contents, setContents }) => {
 
   return (
     <>
-      <form onSubmit={handlerSearch}>
+      <form className="searchForm" onSubmit={handlerSearch}>
         <input type="text" {...searchInput} />
         <button type="submit">Search</button>
       </form>

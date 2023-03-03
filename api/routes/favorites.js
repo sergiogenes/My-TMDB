@@ -29,8 +29,12 @@ router.post("/:category", validateUser, (req, res) => {
   const contentId = req.body.id;
   const category = req.params.category;
   //console.log("userId", userId, "contentId", contentId, "category", category);
-  Favorites.create({ contentId, category, userId })
-    .then((movie) => res.status(201).send(movie))
+  Favorites.findOrCreate({ where: { contentId, category, userId } })
+    .then(([movie, created]) => {
+      console.log("agregando a favorito", movie);
+      if (created) return res.status(201).send(movie);
+      res.send("Ese contenido ya existe en favorito!");
+    })
     .catch((error) => res.status(500).send(error));
 });
 

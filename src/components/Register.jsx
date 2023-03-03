@@ -29,7 +29,7 @@ const Register = ({ setUser }) => {
     navigate("/login");
   };
   return (
-    <form onSubmit={handlerSubmit} style={style}>
+    <form onSubmit={handlerSubmit} className="formRegister">
       <label>First Name:</label>
       <input type="text" {...firstName} />
       <label>Last Name:</label>
@@ -48,7 +48,7 @@ const Register = ({ setUser }) => {
 };
 
 export default Register;
-
+/* 
 const style = {
   display: "flex",
   width: "50%",
@@ -57,4 +57,4 @@ const style = {
   alingsItems: "center",
   gap: "10px",
   fontSize: "16px",
-};
+}; */

@@ -29,7 +29,7 @@ const Login = ({ setUser }) => {
 
   return (
     <>
-      <form onSubmit={handlerSubmit} style={style}>
+      <form onSubmit={handlerSubmit} className="formLogin">
         <label>E - mail:</label>
         <input type="email" {...email} />
         <label>Password:</label>
@@ -46,7 +46,7 @@ const Login = ({ setUser }) => {
 
 export default Login;
 
-const style = {
+/* const style = {
   display: "flex",
   width: "50%",
   flexDirection: "column",
@@ -54,4 +54,4 @@ const style = {
   alingsItems: "center",
   gap: "10px",
   fontSize: "16px",
-};
+}; */

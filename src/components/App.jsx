@@ -12,6 +12,7 @@ import Cartel from "../commons/Cartel";
 import ViewFavotites from "./ViewFavorites";
 import ListUsers from "./ListUsers";
 import User from "./User";
+import Wellcome from "./Wellcome";
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -44,6 +45,7 @@ const App = () => {
       <Navbar user={user} setUser={setUser} />
 
       <Routes>
+        <Route path="/" element={<Wellcome />} />
         <Route path="register" element={<Register setUser={setUser} />} />
         <Route path="login" element={<Login user={user} setUser={setUser} />} />
         <Route path="user/:id" element={<User config={config} />} />
